@@ -1,55 +1,65 @@
-<html>
-    <head>
-        <style type="text/css">
-            body{
-  background: #02CF9F;
-  color: #014B59;
-}
-h1 {
-  color: #212344;
-}
-h2{
-  color: #02849F;
-}
-h3{
-  color: #016124;
-}
-hr{
-  background: #212344;
-  height: 3px;
-}
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEKONET — Entrar</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@400;500;600;700;800&display=swap');
 
-            </style>
-    </head>
-    <body>
-<img src="./img/foto.jpg" alt="Foto de Perfil" width="300">
-<h1> Vagner Lourenço</h1>
-<hr>
-<h2> Contato</h2>
-  <ul>
-    <li>vagnerinfo@yahoo.com.br</li>
-    <li>(19) 992124943 </li>
-    <li>Americana / SP</li>
- </ul>
- <h2>Objetivos</h2>
- <h3> Trabalhar com desenvolvimento de sistemas</h3>
-<h2>Formação</h2>
-<ul>
-  <li> Análise e Desenvolmento de Sistemas. <em>(cursando).</em></li>
-  <li> Ensino Médio <strong> completo</strong></li>
-</ul>
-<h2>Cursos Complementares</h2>
-<ul>
-  <li>Capacitação em TI.</li>
-  <li>Curso inicial de Autocad.</li>
-  <li> Curso intermediário de Montagem e Manutenção de Computadores.</li>
-  <li>Curso básico em Windows, Office.</li>
-</ul>
-<h2>Redes Sociais</h2>
-<ul>
-  <li><a href="https://facebook.com/vagner.louren" target="_blank"><img src="https://cdn.iconscout.com/icon/free/png-256/facebook-circle-1868984-1583148.png" alt="Facebook" width="50"></a></li>
-  <li><a href="https://instagram.com/vagnerinfo" target="_blank"><img src="https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo_instagram-256.png" alt="Instagram" width="50"></a></li>
-  <li><a href="https://linkedin.com/in/vagner-lourenço-9110a9164/" target="_blank"> <img src="https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Linkedin_unofficial_colored_svg-256.png" alt="Linkedin" width="50"> </a></li>
-</ul>
-</body>
+      :root { color-scheme: dark; }
+      * { box-sizing: border-box; }
+      body { margin: 0; min-height: 100vh; overflow: hidden; background: #100f20; color: #f8f6ff; font-family: Outfit, Arial, sans-serif; }
+      .scene { min-height: 100vh; display: grid; grid-template-columns: 1.12fr .88fr; position: relative; isolation: isolate; }
+      .scene::before { content: ""; position: absolute; inset: 0; z-index: -3; background: radial-gradient(circle at 29% 46%, #563dc7 0, #261d58 29%, transparent 55%), linear-gradient(126deg, #121026 0 51%, #17132d 51%); }
+      .scene::after { content: ""; z-index: -1; position: absolute; inset: 0; opacity: .23; background-image: linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px); background-size: 42px 42px; mask-image: linear-gradient(90deg, #000, transparent 56%); }
+      .art { position: relative; padding: 42px 7vw 44px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
+      .brand { font-weight: 800; letter-spacing: -.06em; font-size: 1.32rem; display: flex; align-items: center; gap: 10px; }
+      .brand-mark { display: grid; place-items: center; width: 29px; height: 29px; border-radius: 9px 9px 9px 2px; background: #fa668b; color: #180f29; font-size: 18px; transform: rotate(-8deg); }
+      .copy { max-width: 510px; margin-top: auto; margin-bottom: 7vh; }
+      .eyebrow { font: 500 .72rem/1 'DM Mono', monospace; letter-spacing: .13em; color: #f3a1b7; text-transform: uppercase; }
+      h1 { font-size: clamp(3rem, 5.3vw, 5.4rem); line-height: .93; letter-spacing: -.065em; margin: 16px 0 22px; max-width: 600px; }
+      h1 em { font-style: normal; color: #f58cb1; position: relative; white-space: nowrap; }
+      h1 em::after { content: ""; height: 8px; position: absolute; background: #f58cb1; border-radius: 9px; left: 3px; right: 1px; bottom: -12px; transform: rotate(-2deg); }
+      .copy p { color: #b9b3d6; line-height: 1.6; font-size: 1.07rem; max-width: 390px; }
+      .chips { display: flex; gap: 10px; flex-wrap: wrap; }
+      .chips span { border: 1px solid rgba(255,255,255,.18); background: rgba(21,16,48,.38); padding: 8px 12px; border-radius: 100px; font: .66rem 'DM Mono', monospace; color: #d7d1ee; }
+      .moon { position: absolute; width: min(34vw, 460px); aspect-ratio: 1; top: 13%; right: -14%; border-radius: 50%; background: #f7c6d9; box-shadow: 0 0 0 20px rgba(247,198,217,.06), 0 0 100px 15px rgba(247,126,179,.25); opacity: .9; }
+      .planet { position: absolute; right: 3vw; bottom: -9vw; width: 38vw; height: 17vw; transform: rotate(-18deg); border-radius: 50%; border: 22px solid #da7099; box-shadow: 0 -15px 0 #a5538b inset, 0 0 60px rgba(237,110,168,.4); opacity: .8; }
+      .spark { position: absolute; color: #ffe6a1; font-size: 23px; animation: twinkle 3s ease-in-out infinite; } .spark.one { top: 24%; left: 47%; } .spark.two { top: 62%; left: 13%; animation-delay: 1s; } .spark.three { top: 10%; left: 69%; animation-delay: 2s; }
+      @keyframes twinkle { 50% { transform: scale(.6); opacity: .4; } }
+      .login-side { background: rgba(14, 12, 31, .8); backdrop-filter: blur(18px); display: grid; place-items: center; padding: 32px; border-left: 1px solid rgba(255,255,255,.08); }
+      .login { width: min(100%, 396px); }
+      .welcome { margin-bottom: 34px; } .welcome h2 { margin: 0 0 8px; font-size: 2rem; letter-spacing: -.045em; } .welcome p { margin: 0; color: #aaa4c6; }
+      form { display: grid; gap: 18px; } label { color: #d8d4e8; font-size: .9rem; font-weight: 600; display: grid; gap: 8px; }
+      .input-wrap { position: relative; } input { appearance: none; width: 100%; height: 54px; border: 1px solid #38334f; outline: none; color: #fff; background: #211d39; border-radius: 12px; font: 400 .94rem Outfit, sans-serif; padding: 0 48px 0 16px; transition: .2s; }
+      input::placeholder { color: #77718e; } input:focus { border-color: #f4759c; box-shadow: 0 0 0 4px rgba(244,117,156,.13); }
+      .password-toggle { position: absolute; right: 13px; top: 50%; transform: translateY(-50%); color: #afa8c8; background: none; border: 0; cursor: pointer; font-size: 18px; }
+      .form-row { display: flex; justify-content: space-between; align-items: center; margin-top: -4px; font-size: .85rem; } .check { display: flex; align-items: center; gap: 8px; color: #aaa4c6; cursor: pointer; } .check input { width: 16px; height: 16px; accent-color: #f4759c; padding: 0; } a { color: #f695b3; text-decoration: none; font-weight: 600; }
+      .submit { height: 55px; margin-top: 4px; border: 0; border-radius: 12px; background: linear-gradient(100deg, #f55e8c, #dc559a); color: #200c28; font: 800 1rem Outfit, sans-serif; cursor: pointer; transition: transform .2s, box-shadow .2s; box-shadow: 0 12px 25px rgba(214,67,128,.22); } .submit:hover { transform: translateY(-2px); box-shadow: 0 15px 30px rgba(214,67,128,.35); }
+      .divider { display: flex; align-items: center; gap: 12px; color: #79728f; font-size: .76rem; margin: 11px 0 1px; } .divider::before, .divider::after { content: ""; height: 1px; background: #36314d; flex: 1; }
+      .social { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; } .social button { height: 48px; background: transparent; border: 1px solid #413b59; color: #e5e1f1; border-radius: 12px; cursor: pointer; font: 600 .85rem Outfit, sans-serif; } .social button:hover { background: #26213e; }
+      .signup { margin: 28px 0 0; text-align: center; color: #aaa4c6; font-size: .88rem; } .notice { min-height: 20px; margin: 12px 0 -18px; text-align: center; color: #a8e6ca; font-size: .84rem; }
+      @media (max-width: 760px) { body { overflow: auto; } .scene { grid-template-columns: 1fr; } .art { min-height: 345px; padding: 28px 26px; } .copy { margin: auto 0 0; } .copy p, .chips { display: none; } h1 { font-size: 3.3rem; max-width: 420px; } .moon { width: 250px; right: -70px; } .planet { width: 300px; height: 135px; bottom: -50px; } .login-side { padding: 42px 26px; } }
+    </style>
+  </head>
+  <body>
+    <main class="scene">
+      <section class="art" aria-label="Universo NekoNet">
+        <div class="brand"><span class="brand-mark">✦</span> NEKONET</div>
+        <span class="moon"></span><span class="planet"></span><span class="spark one">✦</span><span class="spark two">✧</span><span class="spark three">·</span>
+        <div class="copy"><span class="eyebrow">Seu portal para outro mundo</span><h1>Histórias que fazem seu <em>coração</em> acelerar.</h1><p>Entre para acompanhar seus animes favoritos, criar sua lista e descobrir o próximo universo que vai te prender.</p><div class="chips"><span>✦ 12.000+ ANIMES</span><span>◉ NOVOS EPISÓDIOS TODA SEMANA</span></div></div>
+      </section>
+      <section class="login-side"><div class="login">
+        <div class="welcome"><h2>Bem-vindo de volta!</h2><p>Sua próxima aventura está esperando.</p></div>
+        <form id="login-form"><label>E-mail<div class="input-wrap"><input type="email" required autocomplete="email" placeholder="voce@email.com" /></div></label><label>Senha<div class="input-wrap"><input id="password" type="password" required autocomplete="current-password" placeholder="••••••••" /><button class="password-toggle" type="button" aria-label="Mostrar senha" id="toggle-password">◉</button></div></label><div class="form-row"><label class="check"><input type="checkbox" /> Lembrar de mim</label><a href="#recuperar">Esqueceu a senha?</a></div><button class="submit" type="submit">Entrar na NekoNet →</button></form>
+        <p class="notice" id="notice" aria-live="polite"></p><div class="divider">ou continue com</div><div class="social"><button type="button">G&nbsp;&nbsp; Google</button><button type="button">◉&nbsp;&nbsp; Discord</button></div><p class="signup">Ainda não tem uma conta? <a href="#cadastro">Crie a sua</a></p>
+      </div></section>
+    </main>
+    <script>
+      const password = document.querySelector('#password');
+      document.querySelector('#toggle-password').addEventListener('click', () => { const visible = password.type === 'text'; password.type = visible ? 'password' : 'text'; document.querySelector('#toggle-password').setAttribute('aria-label', visible ? 'Mostrar senha' : 'Ocultar senha'); });
+      document.querySelector('#login-form').addEventListener('submit', event => { event.preventDefault(); document.querySelector('#notice').textContent = 'Tudo pronto! Bem-vindo de volta à NekoNet ✦'; });
+    </script>
+  </body>
 </html>
